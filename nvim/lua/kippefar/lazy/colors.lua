@@ -1,14 +1,10 @@
-return
-    {
-        "rose-pine/neovim",
-        name = "rose-pine",
-        config = function()
-            require('rose-pine').setup({
-                varient = "moon",
-                disable_background = true,
-                styles = {
-                    italic = false,
-                },
-            })
-        end
-    }
+return {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    config = function()
+      require("rose-pine").setup({
+        variant = "moon", -- Set to moon variant
+      })
+      vim.cmd("colorscheme rose-pine")
+    end
+}
