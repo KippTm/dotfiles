@@ -1,0 +1,17 @@
+# bemenu configuration example
+
+# Prompt text
+prompt="Run: "
+
+# Maximum number of items to show
+lines=6
+
+# Color settings
+background-color="#282828"
+foreground-color="#ebdbb2"
+highlight-background-color="#8ec07c"
+highlight-foreground-color="#1d2021"
+
+# Font style
+font="FiraCode:size=12"
+
