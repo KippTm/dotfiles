@@ -1,0 +1,34 @@
+{
+    "layer": "top", // bar layer (top/overlay/bottom)
+    "position": "top", // bar position
+    "modules-left": ["sway/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["memory", "cpu", "pulseaudio", "battery",],
+
+    "clock": {
+        "format": "{:%a %b %d %H:%M}"
+    },
+
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    "pulseaudio": {
+        "format": "{volume}% {icon}",
+        "format-icons": {
+        "default": ["", "", ""]
+        }
+    },
+
+    "memory": {
+        "format": "RAM: {}%",
+        "interval": 2
+    },
+
+    "cpu": {
+        "format": "CPU: {usage}%",
+        "interval": 2
+    }
+
+}

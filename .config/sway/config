@@ -10,7 +10,7 @@ set $mod Mod4
 ### Launch stuff ###
 bindsym $mod+Return exec $term
 #bindsym $mod+d exec bemenu -p "Run: "
-bindsym $mod+d exec dmenu_path | bemenu -p "Run:"
+bindsym $mod+d exec zsh -c 'swaymsg exec "$(dmenu_path | bemenu -p "Run:")"'
 
 
 bindsym $mod+Shift+q kill
@@ -21,6 +21,21 @@ bindsym $mod+Shift+e exec "swaymsg exit"
 ### Reload the config file ###
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
+
+bindsym $mod+Shift+g exec systemctl reboot
+
+
+#Binding f keys.
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+
+
+
+
 
 ### Floating toggle ###
 bindsym $mod+Shift+space floating toggle
@@ -40,6 +55,16 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
+#Splitting
+bindsym $mod+v split v
+bindsym $mod+n split h
+
+#Window types
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+
 ### Workspaces ###
 set $ws1 "1: "
 set $ws2 "2: "
@@ -55,6 +80,17 @@ bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
 bindsym $mod+9 workspace $ws9
 
+# Dynamically bind Mod+Shift+[1-9] to move focused container
+# Move focused window to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+9 move container to workspace number $ws9
+
+
 ### Assign apps to workspaces (optional) ###
 # assign [app_id="kitty"] $ws1
 
@@ -63,8 +99,8 @@ bar {
     swaybar_command waybar
 }
 
+gaps outer 5
 gaps inner 10
-gaps outer 500
 
 ### Background ###
 exec_always swaybg -i ~/fotos/bw-bg.jpg -m fill
