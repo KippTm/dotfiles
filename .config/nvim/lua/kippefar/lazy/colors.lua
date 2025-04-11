@@ -1,10 +1,16 @@
 return {
-    "rose-pine/neovim",
-    name = "rose-pine",
+  {
+    "sainnhe/everforest",
+    priority = 1000,
     config = function()
-      require("rose-pine").setup({
-        variant = "moon", -- Set to moon variant
-      })
-      vim.cmd("colorscheme rose-pine")
-    end
+      -- Set background and Everforest options
+      vim.o.background = "dark"
+      vim.g.everforest_background = "hard"
+      vim.g.everforest_enable_italic = 1
+      vim.g.everforest_better_performance = 1
+      -- Apply colorscheme
+      vim.cmd("colorscheme everforest")
+    end,
+  },
 }
+
