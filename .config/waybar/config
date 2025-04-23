@@ -1,9 +1,9 @@
 {
-    "layer": "top", // bar layer (top/overlay/bottom)
-    "position": "top", // bar position
+    "layer": "top",
+    "position": "top", 
     "modules-left": ["sway/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["memory", "cpu", "pulseaudio", "battery",],
+    "modules-right": ["network", "memory", "cpu", "pulseaudio", "battery",],
 
     "clock": {
         "format": "{:%a %b %d %H:%M}"
@@ -29,6 +29,16 @@
     "cpu": {
         "format": "CPU: {usage}%",
         "interval": 2
+    },
+
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} 󰖪",
+        "tooltip-format": "{ifname} via {gwaddr} 󰖪",
+        "format-linked": "{ifname} (No IP) 󰖪",
+        "format-disconnected": "Disconnected 󰖪",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
     }
 
 }
