@@ -3,12 +3,14 @@
 ### Set your preferred terminal and shell ###
 set $term kitty
 set $shell zsh
+set $browser firefox
 
 ### Mod key (usually the Super/Windows key) ###
 set $mod Mod4
 
 ### Launch stuff ###
 bindsym $mod+Return exec $term
+bindsym $mod+o exec $browser
 #bindsym $mod+d exec bemenu -p "Run: "
 bindsym $mod+d exec zsh -c 'swaymsg exec "$(dmenu_path | bemenu -p "Run:")"'
 
